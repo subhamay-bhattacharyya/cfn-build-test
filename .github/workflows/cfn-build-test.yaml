@@ -18,9 +18,14 @@ jobs:
       id-token: write
       
     steps:
-      - name: Build and Test
+      - name: Scan and Validate
+        id: scan-validate
         uses: subhamay-bhattacharyya-gha/cfn-build-test-action-test@main
         with:
           aws-role-arn: arn:aws:iam::637423502513:role/subhamay-github-oidc-role
           aws-region: us-east-1
+          template-dir: ${{ github.workspace }}/cfn/
+          template-file: "root-stack-template.yaml"
+          iac-framework: "cloudformation"
+          soft-fail: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
