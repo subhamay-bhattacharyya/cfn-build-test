@@ -8,6 +8,15 @@ jobs:
   build:
     name: "CloudFormation Build"
     runs-on: ubuntu-latest
+    
+    permissions:
+      # contents: read
+      # packages: read
+      # To report GitHub Actions status checks
+      # statuses: write
+      # To use OIDC
+      id-token: write
+      
     steps:
       - uses: subhamay-bhattacharyya-gha/cfn-build-test-action-test@main
         with:
