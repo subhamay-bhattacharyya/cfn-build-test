@@ -11,4 +11,6 @@ jobs:
     steps:
       - uses: subhamay-bhattacharyya-gha/cfn-build-test-action-test@main
         with:
+          aws-role-arn: arn:aws:iam::637423502513:role/subhamay-github-oidc-role
+          aws-region: us-east-1
           github-token: ${{ secrets.GITHUB_TOKEN }}
