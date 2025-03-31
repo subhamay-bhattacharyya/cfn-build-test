@@ -1,0 +1,14 @@
+name: Build and Test
+run-name: CloudFormation Stack Build and Test by ${{ github.actor }} on ${{ github.ref_name }}
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: "CloudFormation Build"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: subhamay-bhattacharyya-gha/cfn-build-test-action-test@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
