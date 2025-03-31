@@ -24,7 +24,7 @@ jobs:
         with:
           aws-role-arn: arn:aws:iam::637423502513:role/subhamay-github-oidc-role
           aws-region: us-east-1
-          template-dir: ${{ github.workspace }}/cfn/
+          template-dir: "cfn"
           template-file: "root-stack-template.yaml"
           iac-framework: "cloudformation"
           soft-fail: true
