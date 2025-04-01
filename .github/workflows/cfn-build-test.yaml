@@ -38,5 +38,5 @@ jobs:
         if: steps.scan-validate.outputs.valid-template == 'true'
         run: |
           echo "❌ Invalid CloudFormation Template. Failing the workflow."
-          echo "Error: ${{ steps.scan-validate.outputs.validation-error }}"
+          echo "🔎 Error: ${{ steps.scan-validate.outputs.validation-error }}"
           exit 1
