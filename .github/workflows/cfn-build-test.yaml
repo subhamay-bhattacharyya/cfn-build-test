@@ -34,7 +34,7 @@ jobs:
         if: steps.scan-validate.outputs.valid-template == 'true'
         run: echo "✅ The CloudFormation template is valid!"
 
-      - name: Fail the workflow if the issue does not exist
+      - name: Fail the workflow if the template is not valid
         if: steps.scan-validate.outputs.valid-template != 'true'
         run: |
           echo "❌ Invalid CloudFormation Template. Failing the workflow."
