@@ -29,3 +29,14 @@ jobs:
           iac-framework: "cloudformation"
           soft-fail: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Print the validation status
+        if: steps.scan-validate.outputs.valid-template == 'true'
+        run: echo "✅ The CloudFormation template is valid!"
+
+      - name: Fail the workflow if the issue does not exist
+        if: steps.scan-validate.outputs.valid-template == 'true'
+        run: |
+          echo "❌ Invalid CloudFormation Template. Failing the workflow."
+          echo "Error: ${{ steps.scan-validate.outputs.validation-error }}"
+          exit 1
